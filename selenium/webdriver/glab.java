@@ -28,7 +28,7 @@ public class glab {
     @Test
     public void TC_01_GotoLinkGoogle() {
         driver = new ChromeDriver();
-        driver.get("https://www.google.com/");
+        driver.get("https://glab-v2.khgc.dev/login");
         action.sendKeys(txtUsername, userName);
         driver.quit();
     }
