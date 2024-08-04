@@ -13,7 +13,7 @@ public class Topic_01_Environment {
     @Test
     public void TC_01_GotoLinkGoogle() {
         driver = new ChromeDriver();
-        driver.get("https://www.google.com/");
+        driver.get("https://www.google.com.vn/");
         driver.quit();
     }
 
