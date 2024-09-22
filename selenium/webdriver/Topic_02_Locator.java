@@ -10,21 +10,39 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+
 import java.time.Duration;
+
+import static controllers.General_Controllers.generateRandomEmail;
+import static controllers.General_Controllers.generateRandomString;
+import static controllers.General_Controllers.generateRandomAlphabet;
+//import static controllers.General_Controllers.enterText;
+//import static controllers.General_Controllers.clickElement;
+//import static controllers.General_Controllers.webElement;
+import static environment.Environment.URL;
+import static environment.Environment.TXT_FIRST_NAME;
+import static environment.Environment.TXT_LAST_NAME;
+import static environment.Environment.TXT_EMAIL;
+import static environment.Environment.TXT_PASSWORD;
+import static environment.Environment.TXT_CONFIRM_PASSWORD;
+import static environment.Environment.CHECKBOX_AGREE;
+import static environment.Environment.BTN_REGISTER;
+
+
 
 public class Topic_02_Locator {
 
     WebDriver driver;
     WebDriverWait wait;
 
-    private static final String URL = "https://glab-v2.khgc.dev/register";
-    private static final String TXT_FIRST_NAME = "//input[@id='firstName']";
-    private static final String TXT_LAST_NAME = "//input[@id='lastName']";
-    private static final String TXT_EMAIL = "//input[@id='emailInput']";
-    private static final String TXT_PASSWORD = "//input[@id='passwordInput']";
-    private static final String TXT_CONFIRM_PASSWORD = "//input[@id='passwordCfmInput']";
-    private static final String CHECKBOX_AGREE = "//input[@id='agreeCkb']";
-    private static final String BTN_REGISTER = "(//button[@type='submit'])[2]";
+//    private static final String URL = "https://glab-v2.khgc.dev/register";
+//    private static final String TXT_FIRST_NAME = "//input[@id='firstName']";
+//    private static final String TXT_LAST_NAME = "//input[@id='lastName']";
+//    private static final String TXT_EMAIL = "//input[@id='emailInput']";
+//    private static final String TXT_PASSWORD = "//input[@id='passwordInput']";
+//    private static final String TXT_CONFIRM_PASSWORD = "//input[@id='passwordCfmInput']";
+//    private static final String CHECKBOX_AGREE = "//input[@id='agreeCkb']";
+//    private static final String BTN_REGISTER = "(//button[@type='submit'])[2]";
 
     @BeforeClass
     public void beforeClass() {
@@ -44,14 +62,19 @@ public class Topic_02_Locator {
         element.click();
     }
 
+    private void webElement() {
+        By xpath = By.xpath("");
+        WebElement findElement = driver.findElement(xpath);
+    }
+
     @Test
     public void TC_01_GotoLinkGoogle() {
-        driver.get(URL);
+        driver.get(URL + "register");
 
         // Enter form data
-        enterText(TXT_FIRST_NAME, "First Name");
-        enterText(TXT_LAST_NAME, "Last Name");
-        enterText(TXT_EMAIL, "abc1@gmail.com");
+        enterText(TXT_FIRST_NAME, "First Name" + "" + generateRandomAlphabet(3));
+        enterText(TXT_LAST_NAME, "Last Name"+ "" + generateRandomAlphabet(3));
+        enterText(TXT_EMAIL, generateRandomEmail());
         enterText(TXT_PASSWORD, "Test@123123");
         enterText(TXT_CONFIRM_PASSWORD, "Test@123123");
 
