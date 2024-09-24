@@ -1,5 +1,6 @@
 package webdriver;
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,9 +17,10 @@ import java.time.Duration;
 import static controllers.General_Controllers.generateRandomEmail;
 import static controllers.General_Controllers.generateRandomString;
 import static controllers.General_Controllers.generateRandomAlphabet;
-//import static controllers.General_Controllers.enterText;
-//import static controllers.General_Controllers.clickElement;
-//import static controllers.General_Controllers.webElement;
+import static controllers.General_Controllers.enterText;
+import static controllers.General_Controllers.webElement;
+import static controllers.General_Controllers.clickElement;
+
 import static environment.Environment.URL;
 import static environment.Environment.TXT_FIRST_NAME;
 import static environment.Environment.TXT_LAST_NAME;
@@ -51,21 +53,21 @@ public class Topic_02_Locator {
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));  // Explicit wait initialization
     }
 
-    private void enterText(String locator, String value) {
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
-        element.clear();
-        element.sendKeys(value);
-    }
-
-    private void clickElement(String locator) {
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
-        element.click();
-    }
-
-    private void webElement() {
-        By xpath = By.xpath("");
-        WebElement findElement = driver.findElement(xpath);
-    }
+//    private void enterText(String locator, String value) {
+//        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+//        element.clear();
+//        element.sendKeys(value);
+//    }
+//
+//    private void clickElement(String locator) {
+//        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+//        element.click();
+//    }
+//
+//    private void webElement() {
+//        By xpath = By.xpath("");
+//        WebElement findElement = driver.findElement(xpath);
+//    }
 
     @Test
     public void TC_01_GotoLinkGoogle() {

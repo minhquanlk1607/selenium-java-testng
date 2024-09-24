@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeClass;
 
 
 import java.time.Duration;
@@ -13,6 +14,14 @@ import java.util.Random;
 
 public class General_Controllers {
 
+    static WebDriver driver;
+    static WebDriverWait wait;
+
+//    public void beforeClass() {
+//        driver = new ChromeDriver();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//        wait = new WebDriverWait(driver, Duration.ofSeconds(15));  // Explicit wait initialization
+//    }
 
     public static String generateRandomString(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -61,22 +70,19 @@ public class General_Controllers {
         return randomAlphabet.toString();
     }
 
-//    public static void clickElement(String locator) {
-//        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
-//        element.click();
-//    }
-//
-//    public static void webElement(String locator) {
-//        By xpath = By.xpath("");
-//        WebElement findElement = driver.findElement(xpath);
-//    }
-//
-//    public static void enterText(String locator, String value) {
-//
-//        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
-//        element.clear();
-//        element.sendKeys(value);
-//    }
+    public static void enterText(String locator, String value) {
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+        element.clear();
+        element.sendKeys(value);
+    }
+    public static void clickElement(String locator) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+        element.click();
+    }
 
+    public static void webElement(String locator) {
+        By xpath = By.xpath("");
+        WebElement findElement = driver.findElement(xpath);
+    }
 
 }
