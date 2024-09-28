@@ -9,19 +9,26 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
 
 
+import java.sql.DriverManager;
 import java.time.Duration;
 import java.util.Random;
 
 public class General_Controllers {
+    public static WebDriver driver;
+    public static WebDriverWait wait;
 
-    static WebDriver driver;
-    static WebDriverWait wait;
+    @BeforeClass
+    public static void setUp() {
+        System.setProperty("webdriver.chrome.driver",
+                "path/to/chromedriver"); // Thay thế bằng đường dẫn đúng đến chromedriver
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+    }
+    public static void gotoLink(String url) {
+        General_Controllers.driver.get("");
+        // Các dòng code còn lại
+    }
 
-//    public void beforeClass() {
-//        driver = new ChromeDriver();
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-//        wait = new WebDriverWait(driver, Duration.ofSeconds(15));  // Explicit wait initialization
-//    }
 
     public static String generateRandomString(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -80,7 +87,7 @@ public class General_Controllers {
         element.click();
     }
 
-    public static void webElement(String locator) {
+    public static void webElement() {
         By xpath = By.xpath("");
         WebElement findElement = driver.findElement(xpath);
     }

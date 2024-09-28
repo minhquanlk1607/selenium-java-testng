@@ -14,13 +14,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-import static controllers.General_Controllers.generateRandomEmail;
-import static controllers.General_Controllers.generateRandomString;
-import static controllers.General_Controllers.generateRandomAlphabet;
-import static controllers.General_Controllers.enterText;
-import static controllers.General_Controllers.webElement;
-import static controllers.General_Controllers.clickElement;
-
+import static controllers.General_Controllers.*;
 import static environment.Environment.URL;
 import static environment.Environment.TXT_FIRST_NAME;
 import static environment.Environment.TXT_LAST_NAME;
@@ -33,9 +27,9 @@ import static environment.Environment.BTN_REGISTER;
 
 
 public class Topic_02_Locator {
-
-    WebDriver driver;
-    WebDriverWait wait;
+//
+//    WebDriver driver;
+//    WebDriverWait wait;
 
 //    private static final String URL = "https://glab-v2.khgc.dev/register";
 //    private static final String TXT_FIRST_NAME = "//input[@id='firstName']";
@@ -46,12 +40,12 @@ public class Topic_02_Locator {
 //    private static final String CHECKBOX_AGREE = "//input[@id='agreeCkb']";
 //    private static final String BTN_REGISTER = "(//button[@type='submit'])[2]";
 
-    @BeforeClass
-    public void beforeClass() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));  // Explicit wait initialization
-    }
+//    @BeforeClass
+//    public void beforeClass() {
+//        driver = new ChromeDriver();
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+//        wait = new WebDriverWait(driver, Duration.ofSeconds(15));  // Explicit wait initialization
+//    }
 
 //    private void enterText(String locator, String value) {
 //        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
@@ -71,9 +65,10 @@ public class Topic_02_Locator {
 
     @Test
     public void TC_01_GotoLinkGoogle() {
-        driver.get(URL + "register");
+        gotoLink(URL + "register");
 
         // Enter form data
+
         enterText(TXT_FIRST_NAME, "First Name" + "" + generateRandomAlphabet(3));
         enterText(TXT_LAST_NAME, "Last Name"+ "" + generateRandomAlphabet(3));
         enterText(TXT_EMAIL, generateRandomEmail());
