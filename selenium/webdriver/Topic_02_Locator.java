@@ -1,21 +1,8 @@
 package webdriver;
 
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-
-import java.time.Duration;
-
 import static controllers.General_Controllers.*;
-import static environment.Environment.URL;
 import static environment.Environment.TXT_FIRST_NAME;
 import static environment.Environment.TXT_LAST_NAME;
 import static environment.Environment.TXT_EMAIL;
@@ -65,10 +52,7 @@ public class Topic_02_Locator {
 
     @Test
     public void TC_01_GotoLinkGoogle() {
-        gotoLink(URL + "register");
-
         // Enter form data
-
         enterText(TXT_FIRST_NAME, "First Name" + "" + generateRandomAlphabet(3));
         enterText(TXT_LAST_NAME, "Last Name"+ "" + generateRandomAlphabet(3));
         enterText(TXT_EMAIL, generateRandomEmail());

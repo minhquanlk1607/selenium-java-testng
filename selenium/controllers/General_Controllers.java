@@ -7,8 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
+import static environment.Environment.URL;
 
-
+import java.net.URL;
 import java.sql.DriverManager;
 import java.time.Duration;
 import java.util.Random;
@@ -22,6 +23,7 @@ public class General_Controllers {
         System.setProperty("webdriver.chrome.driver",
                 "path/to/chromedriver"); // Thay thế bằng đường dẫn đúng đến chromedriver
         driver = new ChromeDriver();
+        driver.navigate().to(URL);
         wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
     public static void gotoLink(String url) {
