@@ -3,34 +3,13 @@ package controllers;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeClass;
-import static environment.Environment.URL;
 
-import java.net.URL;
-import java.sql.DriverManager;
-import java.time.Duration;
 import java.util.Random;
 
 public class General_Controllers {
-    public static WebDriver driver;
     public static WebDriverWait wait;
-
-    @BeforeClass
-    public static void setUp() {
-        System.setProperty("webdriver.chrome.driver",
-                "path/to/chromedriver"); // Thay thế bằng đường dẫn đúng đến chromedriver
-        driver = new ChromeDriver();
-        driver.navigate().to(URL);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-    }
-    public static void gotoLink(String url) {
-        General_Controllers.driver.get("");
-        // Các dòng code còn lại
-    }
-
+    public static WebDriver driver;
 
     public static String generateRandomString(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -80,18 +59,22 @@ public class General_Controllers {
     }
 
     public static void enterText(String locator, String value) {
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
-        element.clear();
+//        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+        WebElement element = driver.findElement(By.xpath(locator));
+                element.clear();
         element.sendKeys(value);
     }
     public static void clickElement(String locator) {
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+        WebElement element = driver.findElement(By.xpath(locator));
+//        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
         element.click();
     }
-
-    public static void webElement() {
-        By xpath = By.xpath("");
-        WebElement findElement = driver.findElement(xpath);
-    }
-
 }
+
+/*
+* Anh ơi quán cf đuổi e r, e push lên git hub a clone về fix cho e vs đc ko
+* oke a clone về r
+*ể a xem cho
+* da giờ e ve
+* bye anh nha thanko ke oke bye e
+* */
